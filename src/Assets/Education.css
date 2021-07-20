@@ -1,0 +1,11 @@
+.eduPad{
+    padding:10px;
+    background-color: lightskyblue;
+    border-radius: 5px;
+  }
+
+.edu{
+    padding: 0px;
+    background-color: transparent;
+    
+}
