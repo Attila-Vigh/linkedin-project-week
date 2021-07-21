@@ -1,6 +1,5 @@
 import './HeaderJumbotron.scss'
-import Ract from 'react';
-import { Button, Card, Col, Container, Image, Jumbotron, Row } from 'react-bootstrap';
+import { Jumbotron, } from 'react-bootstrap';
 import { MdPhotoCamera     } from 'react-icons/md';
 
 const HeaderJumbotron = ({ user:{ image, } }) =>  
@@ -9,6 +8,8 @@ const HeaderJumbotron = ({ user:{ image, } }) =>
                     <img
                         className="image"
                         src={ image }
+                        alt='Profile '
+
                     />
             </Jumbotron>
  

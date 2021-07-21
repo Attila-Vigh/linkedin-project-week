@@ -6,8 +6,8 @@ import { BiPencil          } from 'react-icons/bi';
 const HeaderEditIntro = (  ) => {
     return ( 
         <div className='header-icons d-flex justify-content-end'>
-            <RiLinkedinBoxFill className="RiLinkedinBoxFill"   />
-            <BiPencil          className="BiPencil"            />
+            <RiLinkedinBoxFill className="header-icon RiLinkedinBoxFill"   />
+            <BiPencil          className="header-icon BiPencil"            />
         </div>
 
      );

@@ -1,5 +1,6 @@
 div.header-icons {
     display: flex;
+    padding-right : 16px;
     > *{
         background-color: white  ;
         color  : #c37d16;
@@ -11,5 +12,4 @@ div.header-icons {
     .BiPencil {
         color: #666;
     }
-    padding-right : 16px;
 }
