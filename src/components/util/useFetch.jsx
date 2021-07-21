@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const useFetch = ( url, authorization ) => {
 
@@ -40,7 +40,7 @@ const useFetch = ( url, authorization ) => {
                 setIsPending( false );
             })
 
-        },[ url ]);
+        },[ url, authorization ]);
 
     return { dataList, isPending, isError };
 }
