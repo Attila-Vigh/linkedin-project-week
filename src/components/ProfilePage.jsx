@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Activity from './Activity/Activity'
 import Header from './Header/Header'
-import SidebarOptionalMenue from './SidebarOptionalMenue'
+import SidebarOptionalMenue from './Body/Aside/SidebarOptionalMenue'
 import Interests from './Interests/Interests.jsx'
 import ViewedProfile from './ProfilesListItems/ViewedProfile'
 
