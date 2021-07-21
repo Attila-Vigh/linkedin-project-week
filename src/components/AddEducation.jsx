@@ -6,7 +6,6 @@ function AddEducation() {
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
  
     return (
       <>
@@ -30,20 +29,22 @@ function AddEducation() {
             </Container>
        
         
-          <Modal.Body>
+          <Modal.Body >
 
           <Form>
       
             <Form.Group controlId="formBasicSchool">
                 <Form.Label>School *</Form.Label>
-                <Form.Control type="text" required placeholder="Ex:Boston University" />
+                <Form.Control type="text" required placeholder="Ex:Boston University" 
+                />
                 <Form.Text className="text-muted" style={{color:'red'}}>
                 School is a required field
                 </Form.Text>
             </Form.Group>
             <Form.Group controlId="formBasicDegree">
                 <Form.Label>Degree </Form.Label>
-                <Form.Control type="text" placeholder="Ex:Bachelor's" />
+                <Form.Control type="text" placeholder="Ex:Bachelor's"
+               />
             </Form.Group>
 
             <Form.Group controlId="formBasicStudy">
@@ -143,7 +144,7 @@ function AddEducation() {
           <div className='d-flex text-muted mb-5'><i className="bi bi-plus-lg my-1 mx-2"></i> <h3 >Add media</h3></div>
           </Modal.Body>
           <Modal.Footer style={{position:'fixed', width:'498px',backgroundColor:'#f7f9fa' ,zIndex:'99',bottom:'0'}}>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary"  onClick={handleClose}>
               Save
             </Button>
           </Modal.Footer>
