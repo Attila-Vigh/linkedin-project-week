@@ -3,31 +3,33 @@ import { Container, ListGroup,Row } from "react-bootstrap";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiPencil } from "react-icons/bi";
 import "../Assets/Education.css";
+import EducationBodyItem from "./EducationBodyItem";
+
 class Education extends Component {
   render() {
     return (
       <Container className=" mt-4 eduPad">
+        {/* SectionHeader */}
+        <Row className="eduPad-section"></Row>
           
-          <ListGroup className="mt-" variant="flush">
+          <ListGroup className="" variant="flush">
+            <img src="" alt=""></img>
           <div className="d-flex justify-content-between">
             <h6>Education</h6> <AiOutlinePlus />
           </div>
-          <ListGroup.Item className="edu">
-            <div className="d-flex justify-content-between">
-              <p className="font-weight-bold">Placeholder</p> <BiPencil />
-            </div>
-            <p>info goes here</p>
-            
-          </ListGroup.Item>
-          <ListGroup.Item className="edu">
-              
-            <p className="font-weight-bold">Placeholder</p>
-            <p>info goes here</p>
-          </ListGroup.Item>
-          <ListGroup.Item className="edu">
-            <p className="font-weight-bold">Placeholder</p>
-            <p>info goes here</p>
-          </ListGroup.Item>
+          <EducationBodyItem 
+            img     = 'https://picsum.photos/100'
+            icon    = {  <BiPencil /> }
+            title   = 'title'
+            subitle = 'subitle'
+            description    = 'description'
+          />
+          <EducationBodyItem 
+            img     = 'https://picsum.photos/100'
+            title   = 'title'
+            subitle = 'subitle'
+            description    = 'description'
+          />
         </ListGroup>
           
         
