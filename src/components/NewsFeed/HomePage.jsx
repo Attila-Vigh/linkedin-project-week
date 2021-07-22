@@ -17,13 +17,13 @@ export default function HomePage() {
 
     return (
         <Container id='profilepage' className='mt-1'>
+            <CheckForErrorAndPending isPending={ isPending } isError={ isError } />
             <Row>
                 <Col className='col-md-2 ordder-md-1 '>
                     <ProfileBox/>
                 </Col>
                 <Col className='col-md-6 ordder-md-2 px-3 pl-4 '>
                     <NewsFeedPoster/>
-                    <CheckForErrorAndPending isPending={ isPending } isError={ isError } />
                     {
                         posts && 
                         posts.slice(0, 5).map( post => 

@@ -5,8 +5,6 @@ import Pending from './Pending';
 
 const CheckForErrorAndPending = ( { isError, isPending }) => {
 
-    console.log( isError )
-    console.log( isPending )
     return (
             isError 
                 ? <Error responseStatus={ isError }/>    
@@ -14,6 +12,5 @@ const CheckForErrorAndPending = ( { isError, isPending }) => {
                     ? <Pending />
                     : isError
     )
-
 }
 export default CheckForErrorAndPending
