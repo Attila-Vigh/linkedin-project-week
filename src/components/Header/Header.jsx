@@ -1,15 +1,14 @@
 import './Header.scss'
 import React from 'react';
-// import { AUTHORIZATION } from '../../hidden/credentials'
+import { AUTHORIZATION } from '../../hidden/credentials'
 import { Container, Row, Col} from 'react-bootstrap';
-import Error    from '../Error';
-import Pending  from '../Pending';
-import useFetch from '../useFetch';
+import useFetch from '../../util/useFetch';
 import HeaderButtons   from './HeaderButtons';
 import HeaderEditIntro from './HeaderEditIntro';
 import HeaderJumbotron from './HeaderJumbotron';
 import HeaderIntro     from './HeaderIntro';
 import HeaderOpenToWork from './HeaderOpenToWork';
+import CheckForErrorAndPending from '../../util/CheckForErrorAndPending';
 
 /*
     _id       : "5d84937322b7b54d848eb41b", //server generated
@@ -29,30 +28,28 @@ import HeaderOpenToWork from './HeaderOpenToWork';
 const Header = ({  }) => {
 
     // const { dataList: userList, isPending, isError } = useFetch( URL, AUTHORIZATION )
-    const URL = 'https://striveschool-api.herokuapp.com/api/profile'
+    const URL = 'https://striveschool-api.herokuapp.com/api/profileError'
     const { dataList: userList, isPending, isError } = useFetch( URL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME' )
 
     return (
         <Container>
                 <Row>
                     <Col>
-                    {   isError && <Error responseStatus={ isError }/>    }
+                    <CheckForErrorAndPending isPending={ isPending } isError={ isError } />
                     {
-                        isPending
-                            ? <Pending />
-                            : userList &&
-                                userList
-                                    .filter( user => user.name === 'Attila' )
-                                    .map( ( user ) => 
-                                        
-                                        <header key={ user._id }>
-                                            <HeaderJumbotron user={ user } />
-                                            <HeaderEditIntro />
-                                            <HeaderIntro user={ user } />
-                                            <HeaderButtons />
-                                            <HeaderOpenToWork />
-                                        </header>
-                                    )
+                        userList &&
+                            userList
+                                .filter( user => user.name === 'Attila' )
+                                .map( ( user ) => 
+                                    
+                                    <header key={ user._id }>
+                                        <HeaderJumbotron user={ user } />
+                                        <HeaderEditIntro />
+                                        <HeaderIntro user={ user } />
+                                        <HeaderButtons />
+                                        <HeaderOpenToWork />
+                                    </header>
+                                )
                     }
                 </Col>
             </Row>
