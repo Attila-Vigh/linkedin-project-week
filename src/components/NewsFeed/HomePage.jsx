@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import SinglePost from './SinglePost'
-import { useState, useEffect } from 'react'
 import ProfileBox from '../ProfileBox'
 import NewsFeedPoster from '../NewsFeed/NewsFeedPostInput/Home-Top'
 import HomeAsideNewsAndTopCourses from './HomeAsideNewsAndTopCourses/HomeAsideNewsAndTopCourses';

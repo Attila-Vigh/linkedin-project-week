@@ -11,6 +11,9 @@ export default function Interests() {
                 <Row>
                     <div><h5>Interests</h5></div>
                 </Row>
+                { [
+                    
+                ] }
                 <Row className='d-flex'>
                     <InterestList/>
                     <InterestList/>

@@ -2,12 +2,13 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Activity from './Activity/Activity'
 import Header from './Header/Header'
-import SidebarOptionalMenue from './SidebarOptionalMenue'
+import SidebarOptionalMenue from './AsideProfilesListItems/SidebarOptionalMenue'
 import Interests from './Interests/Interests.jsx'
-import ViewedProfile from './ProfilesListItems/ViewedProfile'
+import ViewedProfile from './AsideProfilesListItems/ViewedProfile'
 import ExperienceList from './Experience/ExperienceList'
 import Dashboard from './DashBoardAndAbout/DashBoard'
 import About from './DashBoardAndAbout/About'
+import Education_Edit from './Education_Edit'
 
 export default function ProfilePage() {
     return (
@@ -19,6 +20,7 @@ export default function ProfilePage() {
                     <About/>
                     <Activity/>
                     <ExperienceList/>
+                    <Education_Edit/>
                     <Interests/>
                     
                 </Col>
