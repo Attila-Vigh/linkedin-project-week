@@ -25,7 +25,15 @@ import TemplateModal from '../TemplateModal/TemplateModal';
     __v       : 0 //server generated           : "60e588767273090015d5571f"
 */
 
+
+// const Header = ({}) => {
+
+//     // const { dataList: userList, isPending, isError } = useFetch( URL, AUTHORIZATION )
+//     const URL = 'https://striveschool-api.herokuapp.com/api/profile'
+//     const { dataList: userList, isPending, isError } = useFetch( URL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME' )
+
 const Header = ({ dataList, isPending, isError }) => {
+
 
     const user = dataList;
     
