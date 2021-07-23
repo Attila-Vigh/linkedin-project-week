@@ -1,14 +1,51 @@
 import { Modal, Button, Form } from 'react-bootstrap'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { GiMeshBall } from 'react-icons/gi'
 import { BiCaretDown } from 'react-icons/bi'
-import {BsImage} from 'react-icons/bs'
+import { BsImage } from 'react-icons/bs'
 
 function HomeTopModel() {
     const [show, setShow] = useState(false);
+    const [postApi, setPostApi] = useState({})
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
+    // const method = postId? 'PUT' : 'POST'
+    // const url = postId?  'https://striveschool-api.herokuapp.com/api/posts/' + postId : 'https://striveschool-api.herokuapp.com/api/posts/'
+
+
+    const fetchPost = async () => {
+
+        try {
+            const response = await fetch('https://striveschool-api.herokuapp.com/api/posts/', {
+                method: 'POST',
+                body: JSON.stringify({text:postApi}),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME`
+                },
+            })
+            if (response.ok) {
+                alert('Sucessfully Posted!')
+                setPostApi('')
+
+            } else {
+                alert('No fun today!')
+            }
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
+    const submitPost = (e) => {
+        e.preventDefault()
+        fetchPost()
+
+    }
+
 
     return (
         <>
@@ -36,25 +73,30 @@ function HomeTopModel() {
                                 <GiMeshBall /> Anyone <BiCaretDown /></Button>
                         </div>
                     </div>
-                    <Form className='mt-2'>
+                    <Form onSumbit={submitPost} className='mt-2'>
                         <Form.Group controlId="exampleForm.ControlTextarea1">
 
-                            <Form.Control as="textarea" rows={3} placeholder='What do you want to write?'
-                                style={{ border: 'none' }} />
+                            <Form.Control
+                                as="textarea"
+                                rows={3}
+                                placeholder='What do you want to write?'
+                                style={{ border: 'none' }}
+                                value={postApi.text}
+                                onChange={(e) => setPostApi(e.target.value)}
+                            />
                         </Form.Group>
                     </Form>
 
 
-
                 </Modal.Body>
-                <Modal.Footer style={{justifyContent:'space-between'}} className='d-flex'>
-                   
-                <BsImage style={{fontSize:'1.5rem',color:'skyblue'}}/>
+                <Modal.Footer style={{ justifyContent: 'space-between' }} className='d-flex'>
+
+                    <BsImage style={{ fontSize: '1.5rem', color: 'skyblue' }} />
                     <Button
-                        style={{ borderRadius: '50px', padding: '5px 12px' }} variant="primary" onClick={handleClose}>
+                        style={{ borderRadius: '50px', padding: '5px 12px' }} variant="primary" onClick={submitPost}>
                         Post
                     </Button>
-                    
+
                 </Modal.Footer>
             </Modal>
         </>

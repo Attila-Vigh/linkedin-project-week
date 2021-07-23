@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import "../Assets/Dashboard.css";
 import { GiRadarDish } from "react-icons/gi";
 import { BsFillPeopleFill, BsBookmarkFill } from "react-icons/bs";

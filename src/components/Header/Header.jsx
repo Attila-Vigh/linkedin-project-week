@@ -26,7 +26,7 @@ import HeaderOpenToWork from './HeaderOpenToWork';
     __v       : 0 //server generated           : "60e588767273090015d5571f"
 */
 
-const Header = ({  }) => {
+const Header = ({}) => {
 
     // const { dataList: userList, isPending, isError } = useFetch( URL, AUTHORIZATION )
     const URL = 'https://striveschool-api.herokuapp.com/api/profile'

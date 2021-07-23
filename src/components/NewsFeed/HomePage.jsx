@@ -33,21 +33,24 @@ export default function HomePage() {
         }
     }
 
+    
+    const sortedPosts = posts.sort((a,b) => a.createdAt -  b.createdAt)
+
 
     return (
         <Container id='profilepage' className='mt-5'>
             <Row>
-                <Col className='col-md-3 ordder-md-1 pr-5 ml-5'>
+                <Col className='col-md-3 ordder-md-1 pr-3 ml-2'>
                     <ProfileBox/>
                 </Col>
                 <Col className='col-md-6 ordder-md-2 px-2'>
                     <NewsFeedPoster/>
-                    {posts && posts.slice(0, 5).map((post) => {
+                    {posts && sortedPosts.slice(0, 10).map((post) => {
                        return  < SinglePost user={post}/>
                         })
                     }
                 </Col>
-                <Col className='col-md-3 ordder-md-3 pl-3 mr-5'>
+                <Col className='col-md-3 ordder-md-3 pl-1 mr-2'>
                     <h1>part three</h1>
                 </Col>
             </Row>

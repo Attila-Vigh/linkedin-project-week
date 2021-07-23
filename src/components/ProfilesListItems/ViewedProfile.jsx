@@ -24,7 +24,6 @@ class ViewedProfile extends Component {
                 this.setState({
                     profiles: data
                 })
-                console.log(data);
             }
 
         } catch (error) {
