@@ -3,13 +3,21 @@ div.header-icons {
     > *{
         background-color: white  ;
         color  : #c37d16;
-        width  : 28px;
-        height : 28px;
+        width  : 36px;
+        height : 36px;
         margin : 0px 8px 0;
-
+        padding: 5px;        
     }
     .BiPencil {
-        color: #666;
+        color: #555;
+        :hover {
+            background-color: #c7c7c7;
+        }
     }
+    
     padding-right : 16px;
+}
+.BiPencil:hover {
+    background-color: #e6e6e6ef;
+    border-radius: 50%;
 }

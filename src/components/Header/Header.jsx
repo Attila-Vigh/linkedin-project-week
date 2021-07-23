@@ -1,12 +1,14 @@
 import './Header.scss'
-import React from 'react';
-import { Container, Row, Col} from 'react-bootstrap';
-import HeaderButtons   from './HeaderButtons';
-import HeaderEditIntro from './HeaderEditIntro';
-import HeaderJumbotron from './HeaderJumbotron';
-import HeaderIntro     from './HeaderIntro';
+import React, { useState } from 'react';
+import { Container, Row, Col, Button} from 'react-bootstrap';
+import HeaderButtons    from './HeaderButtons';
+import HeaderEditIntro  from './HeaderEditIntro';
+import HeaderJumbotron  from './HeaderJumbotron';
+import HeaderIntro      from './HeaderIntro';
 import HeaderOpenToWork from './HeaderOpenToWork';
+import HeaderModal      from './HeaderModal';
 import CheckForErrorAndPending from '../../util/CheckForErrorAndPending';
+import TemplateModal from '../TemplateModal/TemplateModal';
 
 /*
     _id       : "5d84937322b7b54d848eb41b", //server generated
@@ -27,6 +29,8 @@ const Header = ({ dataList, isPending, isError }) => {
 
     const user = dataList;
     
+     const [modalShow, setModalShow] = useState(false);
+
     return (
         <Container>
                 <Row>
@@ -36,10 +40,15 @@ const Header = ({ dataList, isPending, isError }) => {
                         user &&
                             <header key={ user._id }>
                                 <HeaderJumbotron user={ user } />
-                                <HeaderEditIntro />
+                                <HeaderEditIntro setModalShow={ setModalShow } />
                                 <HeaderIntro user={ user } />
-                                <HeaderButtons />
+                                <HeaderButtons  />
                                 <HeaderOpenToWork />
+                                <HeaderModal
+                                    show={ modalShow }
+                                    onHide={() => setModalShow(false)}
+                                    user={ user }
+                                />
                             </header>
                     }
                 </Col>

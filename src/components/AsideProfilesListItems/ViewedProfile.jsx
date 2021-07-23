@@ -24,7 +24,6 @@ class ViewedProfile extends Component {
                 this.setState({
                     profiles: data
                 })
-                console.log(data);
             }
 
         } catch (error) {
@@ -43,10 +42,15 @@ class ViewedProfile extends Component {
                         <h2>{this.props.title}</h2>
 
                         <div>
-                            {this.state.showValue ? this.state.profiles.slice(0, 8).map(profile =>
-                                <SingleProfileListItem  key={profile._id} name={profile.name} surname={profile.surname} image={profile.image} title={profile.title} />)
-                                : this.state.profiles.slice(0, 4).map(profile =>
-                                <SingleProfileListItem key={profile._id} name={profile.name} surname={profile.surname} image={profile.image} title={profile.title} />)
+                            {this.state.showValue 
+                                ? this.state.profiles
+                                    .slice(0, 8)
+                                    .map(profile =>
+                                        <SingleProfileListItem  key={profile._id} { ...profile} />)
+                                : this.state.profiles
+                                    .slice(0, 4)
+                                    .map( ({ _id, name, surname, image, title }) =>
+                                        <SingleProfileListItem key={ _id } name={ name } surname={ surname } image={ image } title={ title } />)
                             }
                         </div>
                         <div><hr></hr></div>
