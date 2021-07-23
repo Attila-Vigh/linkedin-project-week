@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {
   Container,
   Card,
@@ -10,37 +9,18 @@ import {
 import "../ProfileBox.css";
 import { RiCheckboxBlankFill } from "react-icons/ri";
 import { BsFillBookmarkFill } from "react-icons/bs";
+import useFetch from "../util/useFetch";
+import CheckForErrorAndPending from "../util/CheckForErrorAndPending";
 
 const ProfileBox = () => {
-  const [profile, setProfile] = useState(null);
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        let response = await fetch(
-          "https://striveschool-api.herokuapp.com/api/profile/me ",
-          {
-            headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGY5MzM4ZTRkYWMyMTAwMTVhYjIyZDIiLCJpYXQiOjE2MjY5NDQzOTksImV4cCI6MTYyODE1Mzk5OX0.gvJzL300N1Cq01mhGvhtX1Che4TQZ6YTnMLY7vQPSt0",
-            },
-          }
-        );
-        if (response.ok) {
-          let data = await response.json();
-          setProfile(data);
-          console.log(data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchProfile();
-  }, []);
+ const URL = 'https://striveschool-api.herokuapp.com/api/profile/me/'
+    const { dataList: profile, isPending, isError } = useFetch( URL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGY5MzM4ZTRkYWMyMTAwMTVhYjIyZDIiLCJpYXQiOjE2MjY5NDQzOTksImV4cCI6MTYyODE1Mzk5OX0.gvJzL300N1Cq01mhGvhtX1Che4TQZ6YTnMLY7vQPSt0' )
 
   return (
     <div id='profilebox'>
       <Container>
+        <CheckForErrorAndPending isPending={ isPending } isError={ isError } />
         {profile && (
           <Row>
             <Card>
