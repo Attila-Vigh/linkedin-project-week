@@ -1,8 +1,6 @@
 import './Header.scss'
 import React from 'react';
-import { AUTHORIZATION } from '../../hidden/credentials'
 import { Container, Row, Col} from 'react-bootstrap';
-import useFetch from '../../util/useFetch';
 import HeaderButtons   from './HeaderButtons';
 import HeaderEditIntro from './HeaderEditIntro';
 import HeaderJumbotron from './HeaderJumbotron';
@@ -25,31 +23,24 @@ import CheckForErrorAndPending from '../../util/CheckForErrorAndPending';
     __v       : 0 //server generated           : "60e588767273090015d5571f"
 */
 
-const Header = ({  }) => {
+const Header = ({ dataList, isPending, isError }) => {
 
-    // const { dataList: userList, isPending, isError } = useFetch( URL, AUTHORIZATION )
-    const URL = 'https://striveschool-api.herokuapp.com/api/profile'
-    const { dataList: userList, isPending, isError } = useFetch( URL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME' )
-
+    const user = dataList;
+    
     return (
         <Container>
                 <Row>
                     <Col>
                     <CheckForErrorAndPending isPending={ isPending } isError={ isError } />
                     {
-                        userList &&
-                            userList
-                                .filter( user => user.name === 'Attila' )
-                                .map( ( user ) => 
-                                    
-                                    <header key={ user._id }>
-                                        <HeaderJumbotron user={ user } />
-                                        <HeaderEditIntro />
-                                        <HeaderIntro user={ user } />
-                                        <HeaderButtons />
-                                        <HeaderOpenToWork />
-                                    </header>
-                                )
+                        user &&
+                            <header key={ user._id }>
+                                <HeaderJumbotron user={ user } />
+                                <HeaderEditIntro />
+                                <HeaderIntro user={ user } />
+                                <HeaderButtons />
+                                <HeaderOpenToWork />
+                            </header>
                     }
                 </Col>
             </Row>
