@@ -21,12 +21,13 @@
     }
     
     .image { 
-        position : absolute;
-        overflow : hidden;
-        border   : 5px solid white;
-        width    : 150px;
-        height   : 150px;
-        top      : 20px;
-        left     : 32px;
+        position     : absolute;
+        overflow     : hidden;
+        border       : 5px solid white;
+        width        : 150px;
+        height       : 150px;
+        top          : 20px;
+        left         : 32px;
+        object-fit   : cover;
     }
 }

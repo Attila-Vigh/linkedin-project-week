@@ -46,7 +46,7 @@ export default function HomePage() {
 
 
     return (
-        <Container id='profilepage' className='mt-1'>
+        <Container id='profilepage' className='mt-3'>
             <CheckForErrorAndPending isPending={ isPending } isError={ isError } />
             <Row>
                 <Col className='col-md-2 ordder-md-1 '>
