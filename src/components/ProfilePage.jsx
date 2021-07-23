@@ -16,9 +16,10 @@ export default function ProfilePage() {
 
     const URL = 'https://striveschool-api.herokuapp.com/api/profile/me'
     const userFetch = useFetch( URL, AUTHORIZATION )
+    console.log(userFetch);
 
     return (
-        <Container id='profilepage' className='mt-5'>
+        <Container id='profilepage' className='mt-3'>
             <Row>
                 <Col className='col-md-8 ordder-md-1 pr-2'>
                     <Header { ...userFetch } />

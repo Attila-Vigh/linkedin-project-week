@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react'
 
 export default function ModalExperience(props) {
 
-  const url = props.expId ? `https://striveschool-api.herokuapp.com/api/profile/${props._id}/experiences/` + props.expId : `https://striveschool-api.herokuapp.com/api/profile/${props._id}/experiences`
+  const url = props.expId ? `https://striveschool-api.herokuapp.com/api/profile/${props.userId}/experiences/` + props.expId : `https://striveschool-api.herokuapp.com/api/profile/${props.userId}/experiences`
   const method = props.expId ? 'PUT' : 'POST'
+
+  const onHideFunction = props.onHide
+  const fetchAndUpdate = props.fetchdata
 
   const [datatoPost, setDatatoPost] = useState({
     role: '',
@@ -56,8 +59,9 @@ export default function ModalExperience(props) {
       })
       if (response.ok) {
         alert('The Event is Deleted Successfully')
-        props.fetchdata()
-        props.onHide()
+        onHideFunction()
+        fetchAndUpdate()
+
       } else {
         alert('there was an issue with the deletion')
       }
@@ -70,7 +74,7 @@ export default function ModalExperience(props) {
 
 
 
-  const fetchPostAndPutData = async (e, props) => {
+  const fetchPostAndPutData = async (e) => {
     e.preventDefault()
 
     try {
@@ -92,9 +96,40 @@ export default function ModalExperience(props) {
           endDate: '',
           description: '',
         })
-        props.fetchdata()
-        props.onHide()
+        onHideFunction()
+        fetchAndUpdate()
 
+
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const ExpId = props.expId
+  const userId = props.userId
+
+
+  const onFileChange = async (e) => {
+    try {
+      const file = e.target.files[0]
+      const formData = new FormData()
+      formData.append('experience', file)
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${ExpId}/picture`, {
+        method: "POST",
+        body: formData,
+        headers: {
+        
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME`
+
+        }
+      })
+      if(response.ok){
+        const data = await response.json()
+        console.log(data);
+        fetchAndUpdate()
+      } else {
+        console.log(response);
       }
     } catch (error) {
       console.log(error);
@@ -201,12 +236,17 @@ export default function ModalExperience(props) {
               }}
             />
           </Form.Group>
+          <input
+            type="file"
+            accept='image/png'
+            onChange={onFileChange}
+          />
         </Form>
       </Modal.Body>
       {
         props.expId ?
           <Modal.Footer className='d-flex justify-content-between'>
-            <Button  className='modalbuttons' onClick={deleteExperience}>Delete</Button>
+            <Button className='modalbuttons' onClick={deleteExperience}>Delete</Button>
             <Button className='modalbuttons' onClick={fetchPostAndPutData}>Edit</Button>
           </Modal.Footer>
           :

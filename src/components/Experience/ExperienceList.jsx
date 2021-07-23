@@ -12,8 +12,9 @@ export default function ExperienceList(props) {
 
     const [experience, setExperience]   = useState([])
     const [modalShow , setModalShow]    = useState(false);
-    const [userId    , setUserId]       = useState('')
+    const [expId     , setExpId]        = useState('')
     const [showMore  , setShowMore]     = useState(false)
+    const userId = '60ae3c85ceaf480015c91868'
 
     const sliceValue        = !showMore ? experience.slice(0, 5)    : experience
     const experienceValue   = showMore  ? "Show Less"               : `Show ${experience.length - 5} more experiences`
@@ -24,7 +25,7 @@ export default function ExperienceList(props) {
         experienceID()
     }, [])
 
-    const fetchdata = async (userID,) => {
+    const fetchdata = async () => {
         const response = await fetch('https://striveschool-api.herokuapp.com/api/profile/60ae3c85ceaf480015c91868/experiences', {
             headers: { 'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME` }
 
@@ -34,11 +35,7 @@ export default function ExperienceList(props) {
         console.log('this is my data', data);
     }
 
-    const experienceID = () => {
-        return experience.map(exp => {
-            setUserId(exp._id)
-        })
-    }
+    const experienceID = () => experience.map(exp => setExpId(exp._id))
 
     return (
         <div id='experiencelist' className='mb-3'>
@@ -49,8 +46,8 @@ export default function ExperienceList(props) {
                 </Row>
                 {
 
-                    sliceValue.map(exp => {
-                        return <ExperienceListItem key={exp._id} expId={exp._id} role={exp.role} company={exp.company} startDate={exp.startDate} description={exp.description} area={exp.area} />
+                    experience && sliceValue.map(exp => {
+                        return <ExperienceListItem key={exp._id} expId={exp._id} role={exp.role} company={exp.company} startDate={exp.startDate} description={exp.description} area={exp.area} userId={exp.user} image={exp.image}/>
                     })
 
                 }
@@ -64,10 +61,11 @@ export default function ExperienceList(props) {
 
             </Container>
             <ModalExperience
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                userId={userId}
-                fetchdata={() => fetchdata}
+                show        =   {modalShow}
+                onHide      =   {() => setModalShow(false)}
+                expId       =    {expId}
+                fetchdata   =   {() => fetchdata()}
+                userId      =   {userId}
             />
         </div>
     )
