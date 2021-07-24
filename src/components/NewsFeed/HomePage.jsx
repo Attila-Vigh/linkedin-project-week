@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import { AUTHORIZATION } from '../../hidden/credentials'
 import SinglePost from './SinglePost'
 import ProfileBox from '../ProfileBox'
 import NewsFeedPoster from '../NewsFeed/NewsFeedPostInput/Home-Top'
@@ -9,54 +10,26 @@ import useFetch from '../../util/useFetch';
 import CheckForErrorAndPending from '../../util/CheckForErrorAndPending';
 
 
-export default function HomePage() {
-
-
-    // const [posts, setPosts] = useState([])
-
-    // useEffect(() => {
-    //     fetchPosts()
-    //     console.log('this is it',posts);
-        
-    // }, [])
-
-
-    // const fetchPosts = async () => {
-    //     try {
-    //         const response = await fetch('https://striveschool-api.herokuapp.com/api/posts/', {
-    //             headers: { 'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME` }
-    //         })
-    //         if (response.ok) {
-    //             const data = await response.json()
-    //             console.log(data);
-    //             setPosts(data)
-    //         }
-
-    //     } catch (error) {
-
-    //     }
-    // }
+export default function HomePage({...userFetch}) {
 
     
-    // const sortedPosts = posts.sort((a,b) => a.createdAt -  b.createdAt)
-
-
+    
     const URL = 'https://striveschool-api.herokuapp.com/api/posts/'
-    const { dataList: posts, isPending, isError } = useFetch( URL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME' )
-
+    const { dataList: posts, isPending, isError } = useFetch( URL, AUTHORIZATION )
+    
 
     return (
         <Container id='profilepage' className='mt-3'>
             <CheckForErrorAndPending isPending={ isPending } isError={ isError } />
             <Row>
                 <Col className='col-md-2 ordder-md-1 '>
-                    <ProfileBox/>
+                    <ProfileBox {...userFetch}/>
                 </Col>
                 <Col className='col-md-6 ordder-md-2 px-3 pl-4 '>
-                    <NewsFeedPoster/>
+                    <NewsFeedPoster {...userFetch}/>
                     {
                         posts && 
-                        posts.slice(0, 5).map( post => 
+                        posts.sort((a,b) => a.createdAt <  b.createdAt? 1 : -1).slice(0, 10).map( post => 
                             < SinglePost key={ post._id } user={post}/>)
                     }
                 </Col>

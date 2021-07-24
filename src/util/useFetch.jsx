@@ -1,48 +1,48 @@
 import { useState, useEffect } from 'react';
 
-const useFetch = ( url, authorization ) => {
+const useFetch = (url, authorization) => {
 
-    const [ dataList       , setDataList  ] = useState( null );
-    const [ isPending      , setIsPending ] = useState( true );
-    const [ isError        , setIsError   ] = useState( null );
+    const [dataList, setDataList] = useState(null);
+    const [isPending, setIsPending] = useState(true);
+    const [isError, setIsError] = useState(null);
 
-    useEffect( () => {
+    useEffect(() => {
 
-        
-        
+
+
         const requestOptions = {
-            
-            method  : 'GET',
-            headers : { 
-                'Content-Type'  : 'application/json',
-                'Authorization' : `Bearer ${authorization}`
+
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authorization}`
             }
         }
-    
-        fetch( url , requestOptions )
-            .then( response => {
-                if (response.ok){
+
+        fetch(url, requestOptions)
+            .then(response => {
+                if (response.ok) {
                     return response.json();
                 }
                 else {
-                    setIsPending( false );
-                    setIsError( response.status )
-                    throw Error( response.status );
+                    setIsPending(false);
+                    setIsError(response.status)
+                    throw Error(response.status);
                 }
             })
-            .then( data => {
-                setDataList( data );
-                setIsPending( false );
-                setIsError( null )
+            .then(data => {
+                setDataList(data);
+                setIsPending(false);
+                setIsError(null)
             })
-            .catch( error => {
+            .catch(error => {
                 console.error(error)
-                setIsPending( false );
+                setIsPending(false);
             })
 
-        },[ url ]);
+    }, [url]);
 
     return { dataList, isPending, isError };
 }
- 
+
 export default useFetch;

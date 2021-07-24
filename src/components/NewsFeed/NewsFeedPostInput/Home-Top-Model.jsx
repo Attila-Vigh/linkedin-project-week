@@ -1,19 +1,16 @@
 import { Modal, Button, Form } from 'react-bootstrap'
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import { GiMeshBall } from 'react-icons/gi'
 import { BiCaretDown } from 'react-icons/bi'
 import { BsImage } from 'react-icons/bs'
 
-function HomeTopModel() {
+
+function HomeTopModel({image, name, surname}) {
     const [show, setShow] = useState(false);
     const [postApi, setPostApi] = useState({})
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-
-    // const method = postId? 'PUT' : 'POST'
-    // const url = postId?  'https://striveschool-api.herokuapp.com/api/posts/' + postId : 'https://striveschool-api.herokuapp.com/api/posts/'
 
 
     const fetchPost = async () => {
@@ -56,10 +53,10 @@ function HomeTopModel() {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='d-flex'>
-                        <img style={{ borderRadius: '52px', width: '52px' }} src='https://picsum.photos/200' height='50' alt="" />
+                        <img style={{ borderRadius: '52px', width: '52px', objectFit: 'cover' }} src={image} height='50' alt="profile" />
                         <div className='ml-4'>
-                            <h6>Sai Krishna Goka</h6>
-                            <Button style={{}}
+                            <h6>{name} {surname}</h6>
+                            <Button 
                                 style={{
                                     padding: '0 0.4rem',
                                     borderColor: 'black',

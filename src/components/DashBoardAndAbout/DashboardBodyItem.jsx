@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Container, Col, Row } from "react-bootstrap";
+import React from 'react'
+import { Row } from "react-bootstrap";
 
 const DashboardBodyItem = ({ icon, title, description }) => (
     <Row className="bodyrows">

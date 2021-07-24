@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, InputGroup, FormControl } from 'react-bootstrap'
+import { Container, Row} from 'react-bootstrap'
 import './HomePageStyle.css'
 import { BiLike, BiCommentMinus } from "react-icons/bi";
 import { RiShareForwardLine, RiSendPlaneFill } from "react-icons/ri";
