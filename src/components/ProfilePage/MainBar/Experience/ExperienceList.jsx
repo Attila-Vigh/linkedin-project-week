@@ -23,6 +23,7 @@ export default function ExperienceList(props) {
     useEffect(() => {
         fetchdata()
         experienceID()
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const fetchdata = async () => {

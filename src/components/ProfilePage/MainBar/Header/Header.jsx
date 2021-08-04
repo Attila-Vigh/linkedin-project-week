@@ -6,7 +6,7 @@ import HeaderEditIntro from './HeaderEditIntro';
 import HeaderJumbotron from './HeaderJumbotron';
 import HeaderIntro from './HeaderIntro';
 import HeaderOpenToWork from './HeaderOpenToWork';
-import CheckForErrorAndPending from '../../util/CheckForErrorAndPending';
+import CheckForErrorAndPending from '../../../../util/CheckForErrorAndPending';
 
 
 /*

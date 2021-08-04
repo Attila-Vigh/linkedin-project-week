@@ -1,19 +1,17 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { AUTHORIZATION } from '../../hidden/credentials'
-import SinglePost from './SinglePost'
-import ProfileBox from '../ProfileBox'
-import NewsFeedPoster from '../NewsFeed/NewsFeedPostInput/Home-Top'
-import HomeAsideNewsAndTopCourses from './HomeAsideNewsAndTopCourses/HomeAsideNewsAndTopCourses';
-import HomeAsideItem from './HomeAsideNewsAndTopCourses/HomeAsideItem';
+import SinglePost from './MainBar/NewsFeed/SinglePost'
+import ProfileBox from '../NewsFeed/LeftSideBar/ProfileBox'
+import NewsFeedPoster from './MainBar/NewsFeedPostInput/Home-Top'
+import HomeAsideNewsAndTopCourses from './RightSideBar/HomeAsideNewsAndTopCourses/HomeAsideNewsAndTopCourses';
+import HomeAsideItem from './RightSideBar/HomeAsideNewsAndTopCourses/HomeAsideItem';
 import useFetch from '../../util/useFetch';
 import CheckForErrorAndPending from '../../util/CheckForErrorAndPending';
 
 
 export default function HomePage({...userFetch}) {
 
-    
-    
     const URL = 'https://striveschool-api.herokuapp.com/api/posts/'
     const { dataList: posts, isPending, isError } = useFetch( URL, AUTHORIZATION )
     

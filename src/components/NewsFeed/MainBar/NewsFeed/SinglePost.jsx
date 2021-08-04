@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row} from 'react-bootstrap'
-import './HomePageStyle.css'
+import '../../HomePageStyle.css'
 import { BiLike, BiCommentMinus } from "react-icons/bi";
 import { RiShareForwardLine, RiSendPlaneFill } from "react-icons/ri";
 
@@ -47,6 +47,7 @@ export default function SinglePost(props) {
                         </div>
                     </div>
                 </Row>
+                {/* this part is left for the comments */}
                 {/* <Row>
                     <div>
                         <div><img src="https://picsum.photos/200" alt="myprofilepic" /></div>

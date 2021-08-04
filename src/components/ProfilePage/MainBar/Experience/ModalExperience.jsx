@@ -21,7 +21,7 @@ export default function ModalExperience(props) {
 
   useEffect(() => {
     fetchPutData(props)
-
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const fetchPutData = async (props) => {

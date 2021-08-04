@@ -1,20 +1,17 @@
 import React from 'react'
 // import useFetch from '../util/useFetch';
 import { Container, Row, Col } from 'react-bootstrap'
-import Activity from './Activity/Activity'
-import Header from './Header/Header'
-import SidebarOptionalMenue from './AsideProfilesListItems/SidebarOptionalMenue'
-import Interests from './Interests/Interests.jsx'
-import ViewedProfile from './AsideProfilesListItems/ViewedProfile'
-import ExperienceList from './Experience/ExperienceList'
-import Dashboard from './DashBoardAndAbout/DashBoard'
-import About from './DashBoardAndAbout/About'
+import Activity from './MainBar/Activity/Activity'
+import Header from '../ProfilePage/MainBar/Header/Header'
+import SidebarOptionalMenue from './SideBar/AsideProfilesListItems/SidebarOptionalMenue'
+import Interests from '../ProfilePage/MainBar/Experience/ExperienceList'
+import ViewedProfile from './SideBar/AsideProfilesListItems/ViewedProfile'
+import ExperienceList from '../ProfilePage/MainBar/Experience/ExperienceList'
+import Dashboard from '../ProfilePage/MainBar/DashBoardAndAbout/DashBoard'
+import About from '../ProfilePage/MainBar/DashBoardAndAbout/About'
 // import Education_Edit from './Education_Edit'
 
 export default function ProfilePage({...userFetch}) {
-
-    // const URL = 'https://striveschool-api.herokuapp.com/api/profile/me'
-    // const userFetch = useFetch( URL, AUTHORIZATION )
 
     return (
         <Container id='profilepage' className='mt-3'>

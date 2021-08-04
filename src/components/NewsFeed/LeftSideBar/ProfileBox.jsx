@@ -1,8 +1,8 @@
 import { Container, Card, Row, ListGroup, ListGroupItem, Image, } from "react-bootstrap";
-import "../ProfileBox.css";
+import "./ProfileBox.css";
 import { RiCheckboxBlankFill } from "react-icons/ri";
 import { BsFillBookmarkFill } from "react-icons/bs";
-import CheckForErrorAndPending from "../util/CheckForErrorAndPending";
+import CheckForErrorAndPending from "../../../util/CheckForErrorAndPending";
 
 const ProfileBox = ({ dataList, isPending, isError }) => {
 

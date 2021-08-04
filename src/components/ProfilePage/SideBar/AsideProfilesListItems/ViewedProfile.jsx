@@ -11,6 +11,8 @@ class ViewedProfile extends Component {
 
     }
 
+    
+
     componentDidMount = async () => {
         try {
             let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/', {

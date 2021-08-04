@@ -39,7 +39,7 @@ const useFetch = (url, authorization) => {
                 console.error(error)
                 setIsPending(false);
             })
-
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [url]);
 
     return { dataList, isPending, isError };

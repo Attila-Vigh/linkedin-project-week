@@ -1,4 +1,4 @@
-import '../Activity/ActivityStyle.css'
+import '../../ProfilePage/Activity/ActivityStyle.css'
 import { Container, Row } from 'react-bootstrap'
 import React from 'react'
 import InterestList from './InterestList'

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, } from 'react-bootstrap';
 import { ImPencil } from 'react-icons/im';
 
-const HeaderOpenToWork = ({ }) => {
+const HeaderOpenToWork = () => {
     return (
         <Card border="0" style={{ backgroundColor: "#e9e5df" }} className="p-3 m-0 mt-4 ml-5 w-50" >
             <Card.Body className="p-0 m-0 position-relative">
