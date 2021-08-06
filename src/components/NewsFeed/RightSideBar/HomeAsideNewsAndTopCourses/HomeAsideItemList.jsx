@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const HomeAsideItemList = ( { infoList, ulOrOl } ) =>{
 
-    const [ showMoreOrLess, setShowMoreOrLess] = useState( 5 );
+    const [ showMoreOrLess] = useState( 5 );
  
     const list = infoList &&
                     infoList

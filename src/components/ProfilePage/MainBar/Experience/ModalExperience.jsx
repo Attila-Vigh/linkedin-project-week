@@ -6,6 +6,7 @@ export default function ModalExperience(props) {
 
   const url = props.expId ? `https://striveschool-api.herokuapp.com/api/profile/${props.userId}/experiences/` + props.expId : `https://striveschool-api.herokuapp.com/api/profile/${props.userId}/experiences`
   const method = props.expId ? 'PUT' : 'POST'
+  const Auth = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjgxMTE4ODksImV4cCI6MTYyOTMyMTQ4OX0.IajHxKC4dHmTCVxbYg7KIzLE3uPao9qyimLKvxfN8Rg`
 
   const onHideFunction = props.onHide
   const fetchAndUpdate = props.fetchdata
@@ -29,7 +30,7 @@ export default function ModalExperience(props) {
       const response = await fetch(url, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME`
+          'Authorization': Auth
         }
       })
       const data = await response.json()
@@ -54,7 +55,7 @@ export default function ModalExperience(props) {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME`
+          'Authorization': Auth
         }
       })
       if (response.ok) {
@@ -83,7 +84,7 @@ export default function ModalExperience(props) {
         body: JSON.stringify(datatoPost),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME`
+          'Authorization': Auth
         }
       })
       if (response.ok) {
@@ -120,7 +121,7 @@ export default function ModalExperience(props) {
         body: formData,
         headers: {
         
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME`
+          Authorization: Auth
 
         }
       })

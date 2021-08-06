@@ -18,7 +18,7 @@ function App() {
     return (
         <div className="App">
             <Router>
-                <TopNavbar />
+                <TopNavbar {...userFetch}/>
                 <Route  path='/' exact render={() => <ProfilePage {...userFetch}/>} />
                 <Route  path='/home' exact render={() => <HomePage {...userFetch} />} />
                 <Footer />

@@ -28,7 +28,7 @@ export default function ExperienceList(props) {
 
     const fetchdata = async () => {
         const response = await fetch('https://striveschool-api.herokuapp.com/api/profile/60ae3c85ceaf480015c91868/experiences', {
-            headers: { 'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME` }
+            headers: { 'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjgxMTE4ODksImV4cCI6MTYyOTMyMTQ4OX0.IajHxKC4dHmTCVxbYg7KIzLE3uPao9qyimLKvxfN8Rg` }
 
         })
         const data = await response.json()

@@ -8,7 +8,7 @@ const HeaderJumbotron = ({ user:{ image, profile } }) =>
                     <img
                         className="image"
                         src={ image }
-                        lat={profile}
+                        alt={profile}
                     />
             </Jumbotron>
  

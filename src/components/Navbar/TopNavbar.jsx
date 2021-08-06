@@ -10,8 +10,9 @@ import { RiMessage3Fill } from "react-icons/ri";
 import { CgMenuGridR } from "react-icons/cg";
 
 
-export default function TopNavbar() {
+export default function TopNavbar({ dataList, isPending, isError }) {
 
+    const user = dataList
 
 
     return (
@@ -60,7 +61,10 @@ export default function TopNavbar() {
                                     <Nav.Link>Notifications</Nav.Link>
                                 </div>
                                 <div className='menuItems line'>
-                                    <img src="https://picsum.photos/200" alt="profile" />
+                                    {
+                                    user? <img src={user.image} alt="profile" />
+                                    : <img src='https://picsum.photos/200' alt="profile" />
+                                    }
                                     <NavDropdown title="Me" id="navbarScrollingDropdown">
                                         <Link to='/'><NavDropdown.Item href="#action3">Action</NavDropdown.Item></Link>
                                         <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>

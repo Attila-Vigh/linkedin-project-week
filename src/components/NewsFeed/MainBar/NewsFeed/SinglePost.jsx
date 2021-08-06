@@ -20,6 +20,9 @@ export default function SinglePost(props) {
                     <div>
                         <p>{props.user.text}</p>
                     </div>
+                    <div>
+                        <img src={props.user.image} alt="newpost" />
+                    </div>
                 </Row>
                 <Row>
                     <div>

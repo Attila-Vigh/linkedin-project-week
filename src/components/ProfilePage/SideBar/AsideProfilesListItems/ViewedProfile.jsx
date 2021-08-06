@@ -18,7 +18,7 @@ class ViewedProfile extends Component {
             let response = await fetch('https://striveschool-api.herokuapp.com/api/profile/', {
 
                 headers: {
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGY1NGRiOTBlZmU3ODAwMTU1YzM0ZDEiLCJpYXQiOjE2MjY2ODg5NTMsImV4cCI6MTYyNzg5ODU1M30.PiLfN7pEIhpWApHctpBEdZ6QO57sOyrXDmvzsojGvKU'
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjgxMTE4ODksImV4cCI6MTYyOTMyMTQ4OX0.IajHxKC4dHmTCVxbYg7KIzLE3uPao9qyimLKvxfN8Rg'
                 }
             })
             if (response.ok) {

@@ -1,4 +1,4 @@
-import '../../ProfilePage/Activity/ActivityStyle.css'
+import '../Activity/ActivityStyle.css'
 import { Container, Row } from 'react-bootstrap'
 import React from 'react'
 import InterestList from './InterestList'
@@ -11,9 +11,6 @@ export default function Interests() {
                 <Row>
                     <div><h5>Interests</h5></div>
                 </Row>
-                { [
-                    
-                ] }
                 <Row className='d-flex'>
                     <InterestList/>
                     <InterestList/>
