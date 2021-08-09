@@ -1,0 +1,93 @@
+#pictureModal {
+    .modal-content {
+        background-color: #1d2226;
+    }
+
+    .modal-header {
+        color: rgba(255, 255, 255, 0.794);
+        border-bottom: none;
+        .modal-title {
+            font-size: 21px;
+            margin-left: 10px;
+        }
+
+        span {
+            color: white;
+            font-size: 25px;
+        }
+    }
+
+    .modal-body {
+        margin: 5px 0px;
+
+        div:first-child {
+            text-align: center;
+
+            img {
+                border-radius: 50%;
+                height: 280px;
+                object-fit: cover;
+                width: 280px;
+            }
+        }
+
+        button {
+            background-color: transparent;
+            border: solid 2px rgba(255, 255, 255, 0.774);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 700;
+
+            svg {
+                margin-right: 5px;
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
+    .modal-footer {
+        justify-content: space-between;
+        border-top: solid rgba(192, 192, 192, 0.294) 1px;
+
+        button, .form-label {
+            background-color: transparent;
+            border: none;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+            margin-right: 35px;
+
+            svg {
+                width: 27px;
+                height: 27px;
+                margin-bottom: 5px;
+            }
+
+            &:hover {
+                background-color: rgba(192, 192, 192, 0.363);
+            }
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            margin-bottom: 0px;
+            color: white;
+            width: 50px;
+            margin-left: 20px;
+            border-radius: 7px;
+            &:hover {
+                background-color: rgba(192, 192, 192, 0.363);
+                cursor: pointer;
+            }
+        }
+
+    }
+}

@@ -1,40 +1,21 @@
 import './Header.scss'
 import React from 'react';
+import {useState, useEffect} from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
-import HeaderButtons from './HeaderButtons';
 import HeaderEditIntro from './HeaderEditIntro';
 import HeaderJumbotron from './HeaderJumbotron';
 import HeaderIntro from './HeaderIntro';
-import HeaderOpenToWork from './HeaderOpenToWork';
 import CheckForErrorAndPending from '../../../../util/CheckForErrorAndPending';
 
-
-/*
-    _id       : "5d84937322b7b54d848eb41b", //server generated
-    name      : "Diego",
-    surname   : "Banovaz",
-    email     : "diego@strive.school",
-    bio       : "SW ENG",
-    title     : "COO @ Strive School",
-    area      : "Berlin",
-    image     : ..., //server generated on upload
-    username  : "admin", //server generated from Auth
-    createdAt : "2019-09-20T08:53:07.094Z", //server generated
-    updatedAt : "2019-09-20T09:00:46.977Z", //server generated
-    __v       : 0 //server generated           : "60e588767273090015d5571f"
-*/
-
-
-// const Header = ({}) => {
-
-//     // const { dataList: userList, isPending, isError } = useFetch( URL, AUTHORIZATION )
-// const URL = 'https://striveschool-api.herokuapp.com/api/profile'
-// const { dataList: userList, isPending, isError } = useFetch(URL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFlM2M4NWNlYWY0ODAwMTVjOTE4NjgiLCJpYXQiOjE2MjY3MDEzNzAsImV4cCI6MTYyNzkxMDk3MH0.IM9cEo_PuSRIB7l1erCyKvf0jtzAUGi2Vr_ARs71CME')
-
 const Header = ({ dataList, isPending, isError }) => {
-
-
+    
     const user = dataList;
+    const [inputValue, setInputValue] = useState({})
+    console.log(user);
+
+   useEffect(() => {
+
+    }, [])
 
     return (
         <Container>
@@ -44,11 +25,9 @@ const Header = ({ dataList, isPending, isError }) => {
                     {
                         user &&
                         <header key={user._id}>
-                            <HeaderJumbotron user={user} />
-                            <HeaderEditIntro />
-                            <HeaderIntro user={user} />
-                            <HeaderButtons />
-                            <HeaderOpenToWork />
+                            <HeaderJumbotron inputValue={inputValue} user={user} />
+                            <HeaderEditIntro handleInputValue={(key, value, ...inputValue) => setInputValue(key, value, ...inputValue )}/>
+                            <HeaderIntro user={inputValue.name? inputValue : user} />
                         </header>
                     }
                 </Col>

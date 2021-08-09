@@ -1,0 +1,25 @@
+.modal-content{
+    .form-label {
+        font-size: 14px;
+        color: grey;
+        margin-bottom: 5px;
+    }
+
+    .form-check {
+        align-items: center;
+        line-height: 30px;
+
+        .form-check-input {
+            width: 24px;
+            height: 24px;
+        }
+        .form-check-label {
+         margin-left: 15px;
+         font-size: 14px;
+         color: grey;
+        }
+    }
+
+
+
+}

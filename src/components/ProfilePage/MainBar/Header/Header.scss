@@ -1,6 +1,71 @@
-header, .regularComponent { 
-    border: 2px solid rgb(235, 235, 235)!important;
+header,
+.regularComponent {
+    border: 2px solid rgb(235, 235, 235) !important;
     background-color: white;
-    border-radius   : 14px;
-    padding-bottom: 26px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+header {
+    .header-icons {
+        align-items: center;
+    }
+
+    .card-body {
+        padding-top: 0px;
+
+        .row:first-child {
+            div:first-child {
+
+                div:first-child {
+                    font-size: 25px;
+                    font-weight: 600;
+                }
+
+                div:last-child {
+                    font-size: 14px;
+
+                    img {
+                        width: 25px;
+                    }
+                }
+            }
+
+            div:last-child {
+                img{
+                    width: 35px;
+                    height: 35px;
+                    object-fit: cover;
+                    margin-right: 10px;
+                }
+
+                span {
+                    font-weight: 500;
+                    color: black;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .row:nth-child(2) {
+            margin-left: 0px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .row:last-child {
+            margin: 15px 0px 0px 0px;
+
+            button:first-child {
+                margin: 0px;
+            }
+
+            button {
+                max-width: 100%;
+                border: solid silver 1px;
+                margin-left: 10px;
+                font-weight: 700;
+            }
+        }
+    }
 }

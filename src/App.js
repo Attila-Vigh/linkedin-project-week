@@ -1,5 +1,5 @@
 import Footer from './components/Footer';
-import { AUTHORIZATION } from '../src/hidden/credentials'
+import {AUTHORIZATION} from '../src/hidden/credentials'
 import useFetch from '../src/util/useFetch';
 import TopNavbar from './components/Navbar/TopNavbar';
 import ProfilePage from '../src/components/ProfilePage/ProfilePage'
@@ -13,6 +13,7 @@ function App() {
 
     const URL = 'https://striveschool-api.herokuapp.com/api/profile/me'
     const userFetch = useFetch( URL, AUTHORIZATION )
+    console.log('appJS', userFetch);
 
    
     return (
